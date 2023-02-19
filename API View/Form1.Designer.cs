@@ -44,10 +44,15 @@
             this.cmbDetails = new System.Windows.Forms.ComboBox();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
+            this.txtGetNames = new System.Windows.Forms.TextBox();
+            this.pnlTitleBar = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnMinimize = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            this.pnlTitleBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -65,7 +70,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(137, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(137, 123);
             this.dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -76,21 +81,23 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(973, 574);
+            this.dataGridView1.Size = new System.Drawing.Size(981, 555);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // txtAppDetails
             // 
             this.txtAppDetails.BackColor = System.Drawing.SystemColors.Window;
+            this.txtAppDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAppDetails.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAppDetails.Location = new System.Drawing.Point(3, 394);
+            this.txtAppDetails.Location = new System.Drawing.Point(4, 405);
             this.txtAppDetails.Multiline = true;
             this.txtAppDetails.Name = "txtAppDetails";
-            this.txtAppDetails.Size = new System.Drawing.Size(124, 37);
+            this.txtAppDetails.Size = new System.Drawing.Size(124, 26);
             this.txtAppDetails.TabIndex = 5;
             this.txtAppDetails.Text = "Enter App/Resource Name";
             this.txtAppDetails.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAppDetails.WordWrap = false;
             this.txtAppDetails.Click += new System.EventHandler(this.txtAppDetails_Click);
             // 
             // btnGetApplications
@@ -101,7 +108,7 @@
             this.btnGetApplications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetApplications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGetApplications.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGetApplications.Location = new System.Drawing.Point(672, 18);
+            this.btnGetApplications.Location = new System.Drawing.Point(691, 18);
             this.btnGetApplications.Name = "btnGetApplications";
             this.btnGetApplications.Size = new System.Drawing.Size(146, 65);
             this.btnGetApplications.TabIndex = 7;
@@ -121,7 +128,6 @@
             this.btnAppDetails.Size = new System.Drawing.Size(124, 65);
             this.btnAppDetails.TabIndex = 8;
             this.btnAppDetails.Text = "Get App Details";
-            this.btnAppDetails.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAppDetails.UseVisualStyleBackColor = false;
             this.btnAppDetails.Click += new System.EventHandler(this.btnAppDetails_Click);
             // 
@@ -132,7 +138,7 @@
             this.btnGetResources.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGetResources.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGetResources.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGetResources.Location = new System.Drawing.Point(824, 18);
+            this.btnGetResources.Location = new System.Drawing.Point(843, 18);
             this.btnGetResources.Name = "btnGetResources";
             this.btnGetResources.Size = new System.Drawing.Size(124, 65);
             this.btnGetResources.TabIndex = 9;
@@ -152,13 +158,13 @@
             this.btnResourceDetails.Size = new System.Drawing.Size(124, 65);
             this.btnResourceDetails.TabIndex = 10;
             this.btnResourceDetails.Text = "Get Resource Details";
-            this.btnResourceDetails.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnResourceDetails.UseVisualStyleBackColor = false;
             this.btnResourceDetails.Click += new System.EventHandler(this.btnResourceDetails_Click);
             // 
             // pnlSide
             // 
             this.pnlSide.BackColor = System.Drawing.SystemColors.Highlight;
+            this.pnlSide.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pnlSide.Controls.Add(this.cmbSortType);
             this.pnlSide.Controls.Add(this.lblOrder);
             this.pnlSide.Controls.Add(this.pictureBox2);
@@ -166,10 +172,9 @@
             this.pnlSide.Controls.Add(this.btnAppDetails);
             this.pnlSide.Controls.Add(this.cmbDetails);
             this.pnlSide.Controls.Add(this.btnResourceDetails);
-            this.pnlSide.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSide.Location = new System.Drawing.Point(0, 0);
             this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(136, 676);
+            this.pnlSide.Size = new System.Drawing.Size(136, 718);
             this.pnlSide.TabIndex = 11;
             // 
             // cmbSortType
@@ -200,7 +205,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::API_View.Properties.Resources.Elanco_svg__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 69);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(124, 73);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -233,10 +238,9 @@
             this.pnlHeader.Controls.Add(this.lblHeader);
             this.pnlHeader.Controls.Add(this.btnGetApplications);
             this.pnlHeader.Controls.Add(this.btnGetResources);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(136, 0);
+            this.pnlHeader.Location = new System.Drawing.Point(136, 34);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(974, 106);
+            this.pnlHeader.Size = new System.Drawing.Size(982, 112);
             this.pnlHeader.TabIndex = 12;
             // 
             // lblHeader
@@ -244,11 +248,58 @@
             this.lblHeader.AutoSize = true;
             this.lblHeader.Font = new System.Drawing.Font("Arial Narrow", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblHeader.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblHeader.Location = new System.Drawing.Point(49, 27);
+            this.lblHeader.Location = new System.Drawing.Point(36, 30);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(365, 53);
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Swagger API Demo";
+            // 
+            // txtGetNames
+            // 
+            this.txtGetNames.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtGetNames.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGetNames.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtGetNames.Location = new System.Drawing.Point(827, 145);
+            this.txtGetNames.Multiline = true;
+            this.txtGetNames.Name = "txtGetNames";
+            this.txtGetNames.ReadOnly = true;
+            this.txtGetNames.Size = new System.Drawing.Size(291, 573);
+            this.txtGetNames.TabIndex = 13;
+            // 
+            // pnlTitleBar
+            // 
+            this.pnlTitleBar.BackColor = System.Drawing.Color.IndianRed;
+            this.pnlTitleBar.Controls.Add(this.btnClose);
+            this.pnlTitleBar.Controls.Add(this.btnMinimize);
+            this.pnlTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitleBar.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitleBar.Name = "pnlTitleBar";
+            this.pnlTitleBar.Size = new System.Drawing.Size(1110, 38);
+            this.pnlTitleBar.TabIndex = 14;
+            this.pnlTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitleBar_MouseDown);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImage = global::API_View.Properties.Resources.WhiteX;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(1069, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(38, 32);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackgroundImage = global::API_View.Properties.Resources.White_;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Location = new System.Drawing.Point(1016, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(38, 32);
+            this.btnMinimize.TabIndex = 1;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // Form1
             // 
@@ -258,10 +309,12 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1110, 676);
+            this.Controls.Add(this.pnlTitleBar);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSide);
+            this.Controls.Add(this.txtGetNames);
             this.Controls.Add(this.dataGridView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Elanco App";
@@ -271,7 +324,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.pnlTitleBar.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -291,6 +346,9 @@
         private PictureBox pictureBox2;
         private Label lblOrder;
         private ComboBox cmbSortType;
-        private PictureBox pctDetails;
+        private TextBox txtGetNames;
+        private Panel pnlTitleBar;
+        private Button btnClose;
+        private Button btnMinimize;
     }
 }

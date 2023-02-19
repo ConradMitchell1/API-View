@@ -1,5 +1,9 @@
 using System.Collections.Immutable;
+using System.Data;
+using System.Security.Cryptography.Pkcs;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Runtime.InteropServices;
 
 
 namespace API_View
@@ -14,37 +18,28 @@ namespace API_View
         int buttonColB = 120;
         bool firstTime = true;
 
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int Iparam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+
 
         public Form1()
         {
             
             elClient.BaseAddress = new Uri(path);
             InitializeComponent();
-
-            //Set the Controls colors.
-            pnlSide.BackColor = Color.FromArgb(33, 104, 105);
-            pnlHeader.BackColor = Color.FromArgb(31, 36, 33);
-
-            lblOrder.BackColor = Color.FromArgb(156, 197, 161);
-            lblOrder.ForeColor = Color.FromArgb(33, 104, 105);
-
-            cmbSortType.BackColor = Color.FromArgb(162, 166, 164);
-            cmbDetails.BackColor = Color.FromArgb(162, 166, 164);
-
-            dataGridView1.GridColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
-            
-            btnAppDetails.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
-            btnGetApplications.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
-            btnResourceDetails.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
-            btnGetResources.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
-
-
-
-
+            txtGetNames.Hide();
+            InitializeFormatting();
         }
         private void btnAppDetails_Click(object sender, EventArgs e)
         {
             //Gets data of an Application from the API.
+            txtGetNames.Hide();
             GetData("applications/", txtAppDetails.Text);
         }
 
@@ -57,6 +52,7 @@ namespace API_View
 
         private void btnResourceDetails_Click(object sender, EventArgs e)
         {
+            txtGetNames.Hide();
             //Gets data of a Resource from the API.
             GetData("resources/", txtAppDetails.Text);
         }
@@ -112,10 +108,12 @@ namespace API_View
 
         private void GetSource(string sourcePath)
         {
+            txtGetNames.Show();
             HttpResponseMessage response = elClient.GetAsync(sourcePath).Result;
             JToken json = JToken.Parse(response.Content.ReadAsStringAsync().Result); //Organises the Json.
-   
-            MessageBox.Show(json.ToString());
+            txtGetNames.Text = json.ToString();
+            
+
         }
         private static ImmutableArray<AppDetails> SortAppsAscending(IEnumerable<AppDetails> apps, string property)
         {
@@ -197,6 +195,55 @@ namespace API_View
                 txtAppDetails.Font = new Font(txtAppDetails.Font.Name, 12F);
             }
             
+        }
+
+        private void InitializeFormatting()
+        {
+            //Set the Controls colors.
+            pnlTitleBar.BackColor = Color.FromArgb(108, 176, 102);
+            pnlSide.BackColor = Color.FromArgb(33, 104, 105);
+            pnlHeader.BackColor = Color.FromArgb(31, 36, 33);
+            
+
+            lblOrder.BackColor = Color.FromArgb(156, 197, 161);
+            lblOrder.ForeColor = Color.FromArgb(33, 104, 105);
+            lblHeader.ForeColor = Color.FromArgb(156, 197, 161);
+
+            cmbSortType.BackColor = Color.FromArgb(162, 166, 164);
+            cmbDetails.BackColor = Color.FromArgb(162, 166, 164);
+
+            txtGetNames.BackColor = Color.FromArgb(0, 0, 0);
+            txtAppDetails.BackColor = Color.FromArgb(31, 36, 33);
+            txtGetNames.ForeColor = Color.FromArgb(156, 197, 161);
+            txtAppDetails.ForeColor = Color.FromArgb(156, 197, 161);
+
+            dataGridView1.GridColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
+
+            btnAppDetails.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
+            btnGetApplications.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
+            btnResourceDetails.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
+            btnGetResources.BackColor = Color.FromArgb(buttonColR, buttonColG, buttonColB);
+            btnClose.FlatAppearance.BorderColor = Color.FromArgb(108, 176, 102);
+            btnMinimize.FlatAppearance.BorderColor = Color.FromArgb(108, 176, 102);
+        }
+
+        private void pnlTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 

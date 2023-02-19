@@ -63,6 +63,36 @@ namespace API_View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _333_3333867_close_games_close_button_icon_png {
+            get {
+                object obj = ResourceManager.GetObject("333-3333867_close-games-close-button-icon-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _333_3333867_close_games_close_button_icon_png__1_ {
+            get {
+                object obj = ResourceManager.GetObject("333-3333867_close-games-close-button-icon-png (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _90_904785_png_file_svg_close_button_icon_png_transparent {
+            get {
+                object obj = ResourceManager.GetObject("90-904785_png-file-svg-close-button-icon-png-transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Elanco_svg {
             get {
                 object obj = ResourceManager.GetObject("Elanco.svg", resourceCulture);
@@ -76,6 +106,26 @@ namespace API_View.Properties {
         internal static System.Drawing.Bitmap Elanco_svg__1_ {
             get {
                 object obj = ResourceManager.GetObject("Elanco.svg (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap White_ {
+            get {
+                object obj = ResourceManager.GetObject("White-", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhiteX {
+            get {
+                object obj = ResourceManager.GetObject("WhiteX", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
